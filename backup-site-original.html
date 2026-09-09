@@ -1,0 +1,3845 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Minha Loja | Iluminação e Elétrica</title>
+
+<style>
+
+/* =====================================================
+   CONFIGURAÇÕES GERAIS
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --amarelo:#f5b400;
+    --amarelo-hover:#d99d00;
+    --preto:#151515;
+    --texto:#292929;
+    --texto-suave:#707070;
+    --branco:#fff;
+    --cinza:#f7f7f7;
+    --borda:#e7e7e7;
+    --whatsapp:#25d366;
+    --whatsapp-hover:#1ebe5d;
+    --container:1200px;
+    --raio:14px;
+    --sombra:0 8px 30px rgba(0,0,0,.08);
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    color:var(--texto);
+    background:#fff;
+    line-height:1.6;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button,
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+.container{
+    width:min(var(--container),calc(100% - 40px));
+    margin:0 auto;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:rgba(255,255,255,.97);
+
+    border-bottom:1px solid var(--borda);
+
+    backdrop-filter:blur(10px);
+}
+
+.header-container{
+    min-height:78px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:25px;
+}
+
+.logo{
+    font-size:1.35rem;
+    font-weight:900;
+    letter-spacing:1px;
+    white-space:nowrap;
+    color:var(--preto);
+}
+
+.logo span{
+    color:var(--amarelo);
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:28px;
+    flex:1;
+}
+
+.menu a{
+    position:relative;
+
+    color:#454545;
+
+    font-size:.92rem;
+    font-weight:600;
+
+    transition:.25s ease;
+}
+
+.menu a:hover{
+    color:var(--amarelo-hover);
+}
+
+.menu a::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-7px;
+
+    width:0;
+    height:2px;
+
+    background:var(--amarelo);
+
+    transition:.25s ease;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+
+/* =====================================================
+   BOTÕES
+===================================================== */
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    min-height:46px;
+
+    padding:0 22px;
+
+    border-radius:8px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    border:none;
+
+    transition:.25s ease;
+}
+
+.btn-primary{
+    color:var(--preto);
+    background:var(--amarelo);
+}
+
+.btn-primary:hover{
+    background:var(--amarelo-hover);
+    transform:translateY(-2px);
+}
+
+.btn-whatsapp{
+    color:#fff;
+    background:var(--whatsapp);
+}
+
+.btn-whatsapp:hover{
+    background:var(--whatsapp-hover);
+    transform:translateY(-2px);
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    min-height:610px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+    align-items:center;
+
+    color:#fff;
+
+    isolation:isolate;
+
+    background:#151515;
+}
+
+
+/* =====================================================
+   CARROSSEL LATERAL
+
+   AGORA AS IMAGENS FICAM UMA AO LADO DA OUTRA.
+
+   QUANDO TROCA:
+   1 → 2 → 3 → 4
+
+   O TRACK DESLIZA LATERALMENTE.
+===================================================== */
+
+.hero-slides{
+    position:absolute;
+
+    inset:0;
+
+    z-index:-3;
+
+    display:flex;
+
+    width:100%;
+    height:100%;
+
+    transition:
+        transform 1s cubic-bezier(.77,0,.18,1);
+
+    will-change:transform;
+}
+
+.hero-slide{
+    position:relative;
+
+    flex:0 0 100%;
+
+    width:100%;
+    height:100%;
+
+    background-position:center;
+    background-size:cover;
+
+    transform:scale(1.02);
+
+    transition:transform 1.2s ease;
+}
+
+
+/* =====================================================
+   SLIDE 1 — DOURADO
+===================================================== */
+
+.hero-slide:nth-child(1){
+
+    background:
+        radial-gradient(
+            circle at 80% 25%,
+            rgba(255,213,79,.8),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #171717 0%,
+            #4d3900 50%,
+            #b47f00 100%
+        );
+}
+
+
+/* =====================================================
+   SLIDE 2 — AZUL
+===================================================== */
+
+.hero-slide:nth-child(2){
+
+    background:
+        radial-gradient(
+            circle at 75% 30%,
+            rgba(70,160,255,.8),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #07121f 0%,
+            #123e68 50%,
+            #087bc1 100%
+        );
+}
+
+
+/* =====================================================
+   SLIDE 3 — ROXO
+===================================================== */
+
+.hero-slide:nth-child(3){
+
+    background:
+        radial-gradient(
+            circle at 75% 30%,
+            rgba(190,110,255,.75),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #180d20 0%,
+            #4a1769 50%,
+            #8e39b8 100%
+        );
+}
+
+
+/* =====================================================
+   SLIDE 4 — VERDE
+===================================================== */
+
+.hero-slide:nth-child(4){
+
+    background:
+        radial-gradient(
+            circle at 75% 30%,
+            rgba(80,220,160,.7),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #071914 0%,
+            #0e533d 50%,
+            #159b70 100%
+        );
+}
+
+
+/* =====================================================
+   OVERLAY ESCURO
+
+   FICA POR CIMA DAS IMAGENS E POR BAIXO DO TEXTO.
+===================================================== */
+
+.hero-overlay{
+    position:absolute;
+
+    inset:0;
+
+    z-index:-2;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(10,10,10,.90) 0%,
+            rgba(10,10,10,.72) 42%,
+            rgba(10,10,10,.35) 100%
+        );
+
+    pointer-events:none;
+}
+
+
+/* =====================================================
+   BRILHO DECORATIVO
+===================================================== */
+
+.hero-light{
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    right:-180px;
+    bottom:-220px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(245,180,0,.25),
+            rgba(245,180,0,0)
+        );
+
+    z-index:-1;
+
+    pointer-events:none;
+}
+
+
+/* =====================================================
+   CONTEÚDO
+===================================================== */
+
+.hero-content{
+    position:relative;
+
+    z-index:3;
+
+    max-width:760px;
+
+    padding:100px 0;
+}
+
+.hero-label,
+.section-label{
+    display:inline-block;
+
+    margin-bottom:14px;
+
+    color:var(--amarelo);
+
+    font-size:.78rem;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+}
+
+.hero h1{
+    max-width:760px;
+
+    margin-bottom:22px;
+
+    font-size:clamp(2.5rem,6vw,4.7rem);
+
+    line-height:1.05;
+
+    letter-spacing:-2px;
+}
+
+.hero p{
+    max-width:650px;
+
+    margin-bottom:34px;
+
+    color:#eee;
+
+    font-size:1.1rem;
+}
+
+
+/* =====================================================
+   SETAS
+===================================================== */
+
+.hero-arrow{
+    position:absolute;
+
+    top:50%;
+
+    z-index:10;
+
+    width:52px;
+    height:52px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    transform:translateY(-50%);
+
+    color:#fff;
+
+    background:rgba(0,0,0,.30);
+
+    border:1px solid rgba(255,255,255,.30);
+
+    border-radius:50%;
+
+    font-size:28px;
+    line-height:1;
+
+    cursor:pointer;
+
+    transition:
+        background .25s ease,
+        transform .25s ease,
+        border-color .25s ease;
+
+    backdrop-filter:blur(5px);
+}
+
+.hero-arrow:hover{
+    background:var(--amarelo);
+
+    border-color:var(--amarelo);
+
+    color:#151515;
+
+    transform:translateY(-50%) scale(1.08);
+}
+
+.hero-arrow-left{
+    left:25px;
+}
+
+.hero-arrow-right{
+    right:25px;
+}
+
+
+/* =====================================================
+   INDICADORES
+===================================================== */
+
+.hero-indicators{
+    position:absolute;
+
+    left:50%;
+    bottom:25px;
+
+    transform:translateX(-50%);
+
+    z-index:10;
+
+    display:flex;
+
+    gap:10px;
+}
+
+.hero-indicator{
+    width:10px;
+    height:10px;
+
+    padding:0;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.45);
+
+    cursor:pointer;
+
+    transition:
+        width .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+}
+
+.hero-indicator.ativo{
+    width:28px;
+
+    border-radius:10px;
+
+    background:var(--amarelo);
+
+    box-shadow:
+        0 0 12px rgba(245,180,0,.8);
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.hero-status{
+    position:absolute;
+
+    right:25px;
+    bottom:22px;
+
+    z-index:10;
+
+    color:rgba(255,255,255,.7);
+
+    font-size:.75rem;
+
+    opacity:.7;
+}
+
+
+/* =====================================================
+   SEÇÕES
+===================================================== */
+
+.section{
+    padding:90px 0;
+}
+
+.section-header{
+    max-width:700px;
+
+    margin-bottom:42px;
+}
+
+.section-header h2{
+    color:var(--preto);
+
+    font-size:clamp(2rem,4vw,3rem);
+
+    line-height:1.1;
+}
+
+.section-header p{
+    margin-top:14px;
+
+    color:var(--texto-suave);
+}
+
+
+/* =====================================================
+   CATEGORIAS
+===================================================== */
+
+.categories-grid{
+    display:grid;
+
+    grid-template-columns:repeat(6,1fr);
+
+    gap:18px;
+}
+
+.category-card{
+    min-height:210px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:24px;
+
+    text-align:center;
+
+    background:#fff;
+
+    border:1px solid var(--borda);
+
+    border-radius:var(--raio);
+
+    transition:.25s ease;
+}
+
+.category-card:hover{
+    transform:translateY(-6px);
+
+    border-color:rgba(245,180,0,.5);
+
+    box-shadow:var(--sombra);
+}
+
+.category-icon{
+    width:68px;
+    height:68px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:16px;
+
+    border-radius:50%;
+
+    background:#fff7dc;
+
+    font-size:2rem;
+}
+
+.category-card h3{
+    margin-bottom:7px;
+
+    font-size:1rem;
+}
+
+.category-card p{
+    color:var(--texto-suave);
+
+    font-size:.82rem;
+}
+
+
+/* =====================================================
+   PRODUTOS
+===================================================== */
+
+.section-products{
+    background:var(--cinza);
+}
+
+.products-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:24px;
+}
+
+.product-card{
+    overflow:hidden;
+
+    background:#fff;
+
+    border:1px solid var(--borda);
+
+    border-radius:var(--raio);
+
+    transition:.25s ease;
+}
+
+.product-card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:var(--sombra);
+}
+
+.product-image{
+    height:260px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eee,
+            #fafafa
+        );
+}
+
+.product-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+}
+
+.product-info{
+    padding:24px;
+}
+
+.product-category{
+    display:inline-block;
+
+    margin-bottom:9px;
+
+    color:#9b7300;
+
+    font-size:.76rem;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+}
+
+.product-info h3{
+    margin-bottom:10px;
+
+    color:var(--preto);
+
+    font-size:1.25rem;
+
+    line-height:1.25;
+}
+
+.product-info p{
+    min-height:50px;
+
+    margin-bottom:15px;
+
+    color:var(--texto-suave);
+
+    font-size:.9rem;
+}
+
+.product-price{
+    display:block;
+
+    color:var(--preto);
+
+    font-size:1.25rem;
+}
+
+.product-button{
+    width:100%;
+
+    margin-top:18px;
+}
+
+
+/* =====================================================
+   SOBRE
+===================================================== */
+
+.about{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:80px;
+
+    align-items:center;
+}
+
+.about h2{
+    color:var(--preto);
+
+    font-size:clamp(2rem,4vw,3rem);
+
+    line-height:1.1;
+}
+
+.about p{
+    margin-bottom:18px;
+
+    color:var(--texto-suave);
+}
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.cta{
+    padding:80px 20px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff6d6,
+            #fffdf5
+        );
+}
+
+.cta h2{
+    max-width:700px;
+
+    margin:0 auto 14px;
+
+    color:var(--preto);
+
+    font-size:clamp(1.8rem,4vw,2.7rem);
+
+    line-height:1.15;
+}
+
+.cta p{
+    margin-bottom:28px;
+
+    color:var(--texto-suave);
+}
+
+
+/* =====================================================
+   CONTATO
+===================================================== */
+
+.contact{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:70px;
+}
+
+.contact h2{
+    margin-bottom:15px;
+
+    color:var(--preto);
+
+    font-size:2rem;
+}
+
+.contact-text{
+    margin-bottom:30px;
+
+    color:var(--texto-suave);
+}
+
+.contact-item{
+    margin-bottom:20px;
+}
+
+.contact-item strong{
+    display:block;
+
+    margin-bottom:3px;
+
+    color:var(--preto);
+}
+
+.contact-item p{
+    color:var(--texto-suave);
+}
+
+.contact-form{
+    padding:30px;
+
+    background:var(--cinza);
+
+    border:1px solid var(--borda);
+
+    border-radius:var(--raio);
+}
+
+.contact-form form{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+}
+
+.contact-form label{
+    margin-top:8px;
+
+    font-size:.85rem;
+
+    font-weight:700;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+
+    padding:13px 14px;
+
+    background:#fff;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+
+    outline:none;
+
+    resize:vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+    border-color:var(--amarelo);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+    color:#d4d4d4;
+
+    background:var(--preto);
+}
+
+.footer-grid{
+    display:grid;
+
+    grid-template-columns:1.5fr 1fr 1fr 1fr;
+
+    gap:40px;
+
+    padding:65px 0;
+}
+
+.footer h3{
+    margin-bottom:15px;
+
+    color:#fff;
+
+    font-size:1rem;
+}
+
+.footer p,
+.footer a{
+    margin-bottom:7px;
+
+    color:#aaa;
+
+    font-size:.88rem;
+}
+
+.footer a{
+    display:block;
+}
+
+.footer a:hover{
+    color:var(--amarelo);
+}
+
+.footer-bottom{
+    padding:20px 0;
+
+    border-top:1px solid #333;
+}
+
+.footer-bottom p{
+    margin:0;
+
+    text-align:center;
+
+    font-size:.78rem;
+}
+
+
+/* =====================================================
+   MENU MOBILE
+===================================================== */
+
+.menu-mobile{
+    display:none;
+
+    width:42px;
+    height:42px;
+
+    align-items:center;
+    justify-content:center;
+
+    color:var(--preto);
+
+    background:#fff;
+
+    border:1px solid var(--borda);
+
+    border-radius:8px;
+
+    font-size:1.3rem;
+
+    cursor:pointer;
+}
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media(max-width:1000px){
+
+    .menu{
+        gap:18px;
+    }
+
+    .categories-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .products-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about,
+    .contact{
+        gap:40px;
+    }
+
+    .footer-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    .container{
+        width:calc(100% - 28px);
+    }
+
+    .header-container{
+        min-height:70px;
+    }
+
+    .menu-mobile{
+        display:flex;
+    }
+
+    .menu{
+        display:none;
+
+        position:absolute;
+
+        left:0;
+        right:0;
+        top:70px;
+
+        padding:20px;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        background:#fff;
+
+        border-bottom:1px solid var(--borda);
+
+        box-shadow:var(--sombra);
+    }
+
+    .menu.aberto{
+        display:flex;
+    }
+
+    .menu a{
+        padding:10px 0;
+    }
+
+    .header-container>.btn-whatsapp{
+        display:none;
+    }
+
+
+    /* HERO */
+
+    .hero{
+        min-height:570px;
+    }
+
+    .hero-content{
+        padding:70px 0;
+    }
+
+    .hero h1{
+        font-size:2.6rem;
+
+        letter-spacing:-1px;
+    }
+
+    .hero p{
+        font-size:1rem;
+    }
+
+    .hero-overlay{
+        background:
+            linear-gradient(
+                90deg,
+                rgba(10,10,10,.90),
+                rgba(10,10,10,.68)
+            );
+    }
+
+
+    /* SETAS */
+
+    .hero-arrow{
+        width:42px;
+        height:42px;
+
+        font-size:22px;
+    }
+
+    .hero-arrow-left{
+        left:12px;
+    }
+
+    .hero-arrow-right{
+        right:12px;
+    }
+
+    .hero-status{
+        display:none;
+    }
+
+
+    .section{
+        padding:65px 0;
+    }
+
+    .categories-grid{
+        grid-template-columns:repeat(2,1fr);
+
+        gap:12px;
+    }
+
+    .category-card{
+        min-height:170px;
+
+        padding:18px;
+    }
+
+    .products-grid{
+        grid-template-columns:1fr;
+
+        gap:18px;
+    }
+
+    .about,
+    .contact{
+        grid-template-columns:1fr;
+
+        gap:35px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+
+        gap:30px;
+
+        padding:50px 0;
+    }
+
+}
+
+
+@media(max-width:400px){
+
+    .categories-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:2.2rem;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+}
+
+
+/* =====================================================
+   ACESSIBILIDADE
+===================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    .hero-slides{
+        transition:none;
+    }
+
+}
+
+
+/* =====================================================
+   CATEGORIAS DO CATÁLOGO — ESTILO LISTA LATERAL
+===================================================== */
+.catalog-layout{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:30px;
+    align-items:start;
+}
+
+.catalog-categories{
+    background:#f5f5f5;
+    border-radius:16px;
+    padding:26px 0;
+    overflow:hidden;
+}
+
+.catalog-categories h3{
+    margin:0 24px 18px;
+    color:#222;
+    font-size:1.25rem;
+    font-weight:500;
+}
+
+.catalog-category-list{
+    display:flex;
+    flex-direction:column;
+}
+
+.catalog-category{
+    position:relative;
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+    width:100%;
+    min-height:52px;
+    padding:11px 24px 11px 38px;
+    border:0;
+    background:transparent;
+    color:#333;
+    text-align:left;
+    font-size:.98rem;
+    line-height:1.45;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.catalog-category::before{
+    content:"›";
+    position:absolute;
+    left:42px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#008cff;
+    font-size:1.55rem;
+    line-height:1;
+}
+
+.catalog-category span{
+    display:block;
+    padding-left:26px;
+}
+
+.catalog-category:hover{
+    color:#008cff;
+}
+
+.catalog-category.ativo{
+    color:#008cff;
+    font-weight:500;
+    background:#fff;
+    box-shadow:inset -3px 0 0 #008cff;
+}
+
+.catalog-products-area{
+    min-width:0;
+}
+
+@media(max-width:900px){
+    .catalog-layout{
+        grid-template-columns:230px 1fr;
+        gap:20px;
+    }
+}
+
+@media(max-width:700px){
+    .catalog-layout{
+        grid-template-columns:1fr;
+    }
+
+    .catalog-categories{
+        padding:20px 0;
+    }
+
+    .catalog-category-list{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .catalog-category{
+        padding-left:18px;
+        padding-right:12px;
+    }
+
+    .catalog-category::before{
+        left:20px;
+    }
+
+    .catalog-category span{
+        padding-left:22px;
+    }
+}
+
+
+/* =====================================================
+   CARRINHO DE COMPRAS
+===================================================== */
+.catalog-topbar{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:15px;
+    margin-bottom:24px;
+}
+
+.cart-button{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    min-height:46px;
+    padding:0 18px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    background:#fff;
+    color:#222;
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.cart-button:hover{
+    border-color:#008cff;
+    color:#008cff;
+}
+
+.cart-count{
+    min-width:22px;
+    height:22px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 6px;
+    border-radius:50%;
+    background:#008cff;
+    color:#fff;
+    font-size:.75rem;
+}
+
+.cart-overlay{
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    background:rgba(0,0,0,.45);
+    opacity:0;
+    visibility:hidden;
+    transition:.25s ease;
+}
+
+.cart-overlay.aberto{
+    opacity:1;
+    visibility:visible;
+}
+
+.cart-panel{
+    position:absolute;
+    top:0;
+    right:0;
+    width:min(440px,100%);
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    background:#fff;
+    box-shadow:-10px 0 35px rgba(0,0,0,.16);
+    transform:translateX(100%);
+    transition:.3s ease;
+}
+
+.cart-overlay.aberto .cart-panel{
+    transform:translateX(0);
+}
+
+.cart-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    padding:22px 24px;
+    border-bottom:1px solid #e7e7e7;
+}
+
+.cart-header h3{
+    margin:0;
+    color:#151515;
+    font-size:1.25rem;
+}
+
+.cart-close{
+    width:38px;
+    height:38px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    background:#fff;
+    color:#333;
+    font-size:1.4rem;
+    cursor:pointer;
+}
+
+.cart-items{
+    flex:1;
+    overflow-y:auto;
+    padding:18px 24px;
+}
+
+.cart-empty{
+    padding:55px 15px;
+    text-align:center;
+    color:#707070;
+}
+
+.cart-item{
+    display:grid;
+    grid-template-columns:64px 1fr auto;
+    gap:13px;
+    align-items:center;
+    padding:14px 0;
+    border-bottom:1px solid #eee;
+}
+
+.cart-item-image{
+    width:64px;
+    height:64px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:5px;
+    border-radius:8px;
+    background:#f7f7f7;
+}
+
+.cart-item-image img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.cart-item-info h4{
+    margin:0 0 4px;
+    color:#222;
+    font-size:.92rem;
+    line-height:1.25;
+}
+
+.cart-item-info small{
+    display:block;
+    color:#777;
+    font-size:.75rem;
+}
+
+.cart-item-price{
+    margin-top:5px;
+    color:#222;
+    font-size:.85rem;
+    font-weight:700;
+}
+
+.cart-quantity{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin-top:9px;
+}
+
+.cart-quantity button{
+    width:28px;
+    height:28px;
+    border:1px solid #ddd;
+    border-radius:6px;
+    background:#fff;
+    cursor:pointer;
+}
+
+.cart-quantity span{
+    min-width:24px;
+    text-align:center;
+    font-size:.85rem;
+}
+
+.cart-remove{
+    align-self:start;
+    border:0;
+    background:transparent;
+    color:#999;
+    font-size:.8rem;
+    cursor:pointer;
+}
+
+.cart-remove:hover{
+    color:#d33;
+}
+
+.cart-footer{
+    padding:20px 24px 24px;
+    border-top:1px solid #e7e7e7;
+    background:#fff;
+}
+
+.cart-total{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:15px;
+    color:#222;
+}
+
+.cart-total strong{
+    font-size:1.15rem;
+}
+
+.cart-budget{
+    width:100%;
+}
+
+.cart-note{
+    margin-top:10px;
+    color:#777;
+    font-size:.75rem;
+    text-align:center;
+}
+
+.add-cart-button{
+    width:100%;
+    margin-top:18px;
+}
+
+@media(max-width:700px){
+    .catalog-topbar{
+        margin-bottom:18px;
+    }
+
+    .cart-panel{
+        width:100%;
+    }
+}
+
+
+/* =====================================================
+   ACESSO FIXO AO CARRINHO
+===================================================== */
+.cart-floating-button{
+    position:fixed;
+    right:24px;
+    bottom:24px;
+    z-index:1500;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    min-height:52px;
+    padding:0 20px;
+    border:0;
+    border-radius:12px;
+    background:#151515;
+    color:#fff;
+    font-weight:700;
+    box-shadow:0 8px 25px rgba(0,0,0,.18);
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.cart-floating-button:hover{
+    transform:translateY(-2px);
+    background:#008cff;
+}
+
+.cart-floating-count{
+    min-width:24px;
+    height:24px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 7px;
+    border-radius:50%;
+    background:#008cff;
+    color:#fff;
+    font-size:.75rem;
+}
+
+.cart-floating-button:hover .cart-floating-count{
+    background:#fff;
+    color:#008cff;
+}
+
+@media(max-width:700px){
+    .cart-floating-button{
+        right:14px;
+        bottom:14px;
+        min-height:48px;
+        padding:0 16px;
+        border-radius:10px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+<div class="container header-container">
+
+<a href="#inicio" class="logo">
+MINHA LOJA<span>.</span>
+</a>
+
+<button
+class="menu-mobile"
+id="menuMobile"
+aria-label="Abrir menu"
+aria-expanded="false"
+>
+☰
+</button>
+
+<nav class="menu" id="menu">
+
+<a href="#inicio">Início</a>
+
+<a href="#produtos">Produtos</a>
+
+<a href="#sobre">Sobre nós</a>
+
+<a href="#contato">Contato</a>
+
+</nav>
+
+<a
+href="#"
+class="btn btn-whatsapp whatsapp-link"
+>
+WhatsApp
+</a>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     CONTEÚDO
+===================================================== -->
+
+<main id="inicio">
+
+
+<!-- =====================================================
+     HERO / CARROSSEL
+===================================================== -->
+
+<section class="hero" id="hero">
+
+
+<!-- =====================================================
+     TRACK DAS IMAGENS
+
+     IMPORTANTE:
+     As imagens agora ficam lado a lado.
+
+     O JavaScript move o track:
+     
+     translateX(0%)
+     translateX(-100%)
+     translateX(-200%)
+     translateX(-300%)
+
+     Isso cria o efeito de passagem lateral.
+===================================================== -->
+
+<div class="hero-slides" id="heroSlides">
+
+<div class="hero-slide"></div>
+
+<div class="hero-slide"></div>
+
+<div class="hero-slide"></div>
+
+<div class="hero-slide"></div>
+
+</div>
+
+
+<!-- =====================================================
+     OVERLAY
+===================================================== -->
+
+<div class="hero-overlay"></div>
+
+
+<!-- BRILHO -->
+
+<div class="hero-light"></div>
+
+
+<!-- =====================================================
+     SETA ANTERIOR
+===================================================== -->
+
+<button
+class="hero-arrow hero-arrow-left"
+id="heroAnterior"
+aria-label="Imagem anterior"
+title="Imagem anterior"
+>
+‹
+</button>
+
+
+<!-- =====================================================
+     SETA PRÓXIMA
+===================================================== -->
+
+<button
+class="hero-arrow hero-arrow-right"
+id="heroProximo"
+aria-label="Próxima imagem"
+title="Próxima imagem"
+>
+›
+</button>
+
+
+<!-- =====================================================
+     TEXTO PRINCIPAL
+===================================================== -->
+
+<div class="container hero-content">
+
+<span class="hero-label">
+ILUMINAÇÃO & ELÉTRICA
+</span>
+
+<h1>
+Ilumine seus ambientes
+com qualidade e estilo.
+</h1>
+
+<p>
+Encontre produtos de iluminação
+e materiais elétricos para sua casa,
+comércio ou projeto.
+</p>
+
+<a
+href="#produtos"
+class="btn btn-primary"
+>
+Ver catálogo
+</a>
+
+</div>
+
+
+<!-- =====================================================
+     INDICADORES
+===================================================== -->
+
+<div
+class="hero-indicators"
+id="heroIndicadores"
+>
+
+<button
+class="hero-indicator ativo"
+data-slide="0"
+aria-label="Ir para imagem 1"
+></button>
+
+<button
+class="hero-indicator"
+data-slide="1"
+aria-label="Ir para imagem 2"
+></button>
+
+<button
+class="hero-indicator"
+data-slide="2"
+aria-label="Ir para imagem 3"
+></button>
+
+<button
+class="hero-indicator"
+data-slide="3"
+aria-label="Ir para imagem 4"
+></button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CATEGORIAS
+===================================================== -->
+
+<section id="categorias" class="section">
+
+<div class="container">
+
+<div class="section-header">
+
+<span class="section-label">
+ENCONTRE O QUE PRECISA
+</span>
+
+<h2>
+Nossas categorias
+</h2>
+
+</div>
+
+
+<div class="categories-grid">
+
+<a
+href="#produtos"
+class="category-card"
+data-category="lampadas"
+>
+
+<div class="category-icon">
+💡
+</div>
+
+<h3>
+Lâmpadas
+</h3>
+
+<p>
+LED, bulbo, tubular e muito mais.
+</p>
+
+</a>
+
+
+<a
+href="#produtos"
+class="category-card"
+data-category="spots"
+>
+
+<div class="category-icon">
+🔦
+</div>
+
+<h3>
+Spots
+</h3>
+
+<p>
+Iluminação direcionada e decorativa.
+</p>
+
+</a>
+
+
+<a
+href="#produtos"
+class="category-card"
+data-category="plafons"
+>
+
+<div class="category-icon">
+🏠
+</div>
+
+<h3>
+Plafons
+</h3>
+
+<p>
+Soluções para iluminação de ambientes.
+</p>
+
+</a>
+
+
+<a
+href="#produtos"
+class="category-card"
+data-category="pendentes"
+>
+
+<div class="category-icon">
+✨
+</div>
+
+<h3>
+Pendentes
+</h3>
+
+<p>
+Modelos modernos e decorativos.
+</p>
+
+</a>
+
+
+<a
+href="#produtos"
+class="category-card"
+data-category="led"
+>
+
+<div class="category-icon">
+🔆
+</div>
+
+<h3>
+Fitas e LED
+</h3>
+
+<p>
+Fitas, perfis e acessórios LED.
+</p>
+
+</a>
+
+
+<a
+href="#produtos"
+class="category-card"
+data-category="eletrica"
+>
+
+<div class="category-icon">
+⚡
+</div>
+
+<h3>
+Materiais elétricos
+</h3>
+
+<p>
+Produtos para instalações elétricas.
+</p>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     PRODUTOS
+===================================================== -->
+
+<section id="produtos" class="section section-products">
+
+<div class="container">
+
+<div class="section-header">
+
+<span class="section-label">
+CATÁLOGO
+</span>
+
+<h2>
+Nossos produtos
+</h2>
+
+<p>
+Encontre produtos de iluminação
+e materiais elétricos.
+</p>
+
+</div>
+
+
+
+<div class="catalog-topbar">
+    <button type="button" class="cart-button" id="abrirCarrinho" aria-label="Abrir carrinho">
+        <span>🛒</span>
+        <span>Carrinho</span>
+        <span class="cart-count" id="contadorCarrinho">0</span>
+    </button>
+</div>
+
+<div class="catalog-layout">
+
+    <aside class="catalog-categories" aria-label="Categorias do catálogo">
+
+        <h3>Categorias</h3>
+
+        <div class="catalog-category-list">
+
+            <button type="button" class="catalog-category ativo" data-category="">
+                <span>Todas</span>
+            </button>
+
+            <button type="button" class="catalog-category" data-category="lampadas">
+                <span>Lâmpadas</span>
+            </button>
+
+            <button type="button" class="catalog-category" data-category="spots">
+                <span>Spots</span>
+            </button>
+
+            <button type="button" class="catalog-category" data-category="plafons">
+                <span>Plafons</span>
+            </button>
+
+            <button type="button" class="catalog-category" data-category="pendentes">
+                <span>Pendentes</span>
+            </button>
+
+            <button type="button" class="catalog-category" data-category="led">
+                <span>Fitas e LED</span>
+            </button>
+
+            <button type="button" class="catalog-category" data-category="eletrica">
+                <span>Materiais elétricos</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+    <div class="catalog-products-area">
+
+        <div style="
+            display:grid;
+            grid-template-columns:1fr;
+            gap:15px;
+            margin-bottom:35px;
+        ">
+
+            <input
+                type="search"
+                id="busca"
+                placeholder="🔎 Buscar produto..."
+                style="
+                    width:100%;
+                    height:50px;
+                    padding:0 16px;
+                    border:1px solid #ddd;
+                    border-radius:8px;
+                    outline:none;
+                "
+            >
+
+        </div>
+
+        
+<select
+    id="filtroCategoria"
+    style="display:none;"
+    aria-hidden="true"
+>
+    <option value="">Todas as categorias</option>
+    <option value="lampadas">Lâmpadas</option>
+    <option value="spots">Spots</option>
+    <option value="plafons">Plafons</option>
+    <option value="pendentes">Pendentes</option>
+    <option value="led">Fitas e LED</option>
+    <option value="eletrica">Materiais elétricos</option>
+</select>
+
+
+        <div
+            class="products-grid"
+            id="listaProdutos"
+        ></div>
+
+
+<div
+id="nenhumProduto"
+style="
+display:none;
+text-align:center;
+padding:50px 20px;
+"
+>
+
+<h3>
+Nenhum produto encontrado.
+</h3>
+
+<p>
+Tente pesquisar por outro nome ou categoria.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SOBRE
+===================================================== -->
+
+<section id="sobre" class="section">
+
+<div class="container about">
+
+<div>
+
+<span class="section-label">
+SOBRE A LOJA
+</span>
+
+<h2>
+Soluções em iluminação
+e elétrica.
+</h2>
+
+</div>
+
+
+<div>
+
+<p>
+Somos uma loja especializada em iluminação
+e materiais elétricos, oferecendo produtos para
+projetos residenciais, comerciais e profissionais.
+</p>
+
+<p>
+Nosso objetivo é facilitar sua escolha através
+de um catálogo simples, moderno e completo.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta">
+
+<div class="container">
+
+<h2>
+Precisa de ajuda para escolher?
+</h2>
+
+<p>
+Fale conosco pelo WhatsApp e consulte
+preços e disponibilidade.
+</p>
+
+<a
+href="#"
+class="btn btn-whatsapp whatsapp-link"
+>
+Falar pelo WhatsApp
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTATO
+===================================================== -->
+
+<section id="contato" class="section">
+
+<div class="container contact">
+
+
+<div>
+
+<span class="section-label">
+FALE CONOSCO
+</span>
+
+<h2>
+Entre em contato
+</h2>
+
+<p class="contact-text">
+Consulte preços, disponibilidade
+e informações sobre nossos produtos.
+</p>
+
+
+<div class="contact-item">
+
+<strong>
+WhatsApp
+</strong>
+
+<p>
+(00) 00000-0000
+</p>
+
+</div>
+
+
+<div class="contact-item">
+
+<strong>
+Telefone
+</strong>
+
+<p>
+(00) 00000-0000
+</p>
+
+</div>
+
+
+<div class="contact-item">
+
+<strong>
+E-mail
+</strong>
+
+<p>
+contato@minhaloja.com
+</p>
+
+</div>
+
+
+<div class="contact-item">
+
+<strong>
+Endereço
+</strong>
+
+<p>
+Rua da Loja, 000<br>
+Sua cidade - UF
+</p>
+
+</div>
+
+
+<a
+href="#"
+class="btn btn-whatsapp whatsapp-link"
+>
+Chamar no WhatsApp
+</a>
+
+</div>
+
+
+<div class="contact-form">
+
+<h2>
+Envie uma mensagem
+</h2>
+
+
+<form id="formContato">
+
+<label for="nome">
+Nome
+</label>
+
+<input
+type="text"
+id="nome"
+placeholder="Seu nome"
+required
+>
+
+
+<label for="telefone">
+Telefone
+</label>
+
+<input
+type="tel"
+id="telefone"
+placeholder="(00) 00000-0000"
+>
+
+
+<label for="mensagem">
+Mensagem
+</label>
+
+<textarea
+id="mensagem"
+rows="5"
+placeholder="Como podemos ajudar?"
+required
+></textarea>
+
+
+<button
+type="submit"
+class="btn btn-primary"
+>
+Enviar pelo WhatsApp
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+<div class="container footer-grid">
+
+
+<div>
+
+<h3>
+MINHA LOJA
+</h3>
+
+<p>
+Iluminação e materiais elétricos.
+</p>
+
+</div>
+
+
+<div>
+
+<h3>
+Navegação
+</h3>
+
+<a href="#inicio">
+Início
+</a>
+
+<a href="#categorias">
+Categorias
+</a>
+
+<a href="#produtos">
+Produtos
+</a>
+
+<a href="#contato">
+Contato
+</a>
+
+</div>
+
+
+<div>
+
+<h3>
+Contato
+</h3>
+
+<p>
+(00) 00000-0000
+</p>
+
+<p>
+contato@minhaloja.com
+</p>
+
+</div>
+
+
+<div>
+
+<h3>
+Endereço
+</h3>
+
+<p>
+Rua da Loja, 000
+</p>
+
+<p>
+Sua cidade - UF
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+<div class="container">
+
+<p>
+© 2026 Minha Loja. Todos os direitos reservados.
+</p>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- ACESSO FIXO AO CARRINHO -->
+<button
+    type="button"
+    class="cart-floating-button"
+    id="abrirCarrinhoFlutuante"
+    aria-label="Abrir carrinho"
+>
+    <span>🛒</span>
+    <span>Ver carrinho</span>
+    <span class="cart-floating-count" id="contadorCarrinhoFlutuante">0</span>
+</button>
+
+<!-- =====================================================
+     CARRINHO DE COMPRAS
+===================================================== -->
+<div class="cart-overlay" id="cartOverlay" aria-hidden="true">
+
+    <aside class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+
+        <div class="cart-header">
+            <h3 id="cartTitle">Meu carrinho</h3>
+
+            <button
+                type="button"
+                class="cart-close"
+                id="fecharCarrinho"
+                aria-label="Fechar carrinho"
+            >
+                ×
+            </button>
+        </div>
+
+        <div class="cart-items" id="itensCarrinho"></div>
+
+        <div class="cart-footer">
+
+            <div class="cart-total">
+                <span>Total estimado</span>
+                <strong id="totalCarrinho">R$ 0,00</strong>
+            </div>
+
+            <button
+                type="button"
+                class="btn btn-whatsapp cart-budget"
+                id="solicitarOrcamento"
+            >
+                Solicitar orçamento
+            </button>
+
+            <p class="cart-note">
+                Ao clicar, sua seleção será enviada pelo WhatsApp para solicitar o orçamento.
+            </p>
+
+        </div>
+
+    </aside>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   CONFIGURAÇÕES
+===================================================== */
+
+const CONFIG = {
+
+    nomeLoja:"Minha Loja",
+
+    whatsapp:"5500000000000"
+
+};
+
+
+/* =====================================================
+   CARROSSEL
+===================================================== */
+
+const heroSlides =
+    document.getElementById(
+        "heroSlides"
+    );
+
+const slides =
+    document.querySelectorAll(
+        ".hero-slide"
+    );
+
+const indicadores =
+    document.querySelectorAll(
+        ".hero-indicator"
+    );
+
+const botaoAnterior =
+    document.getElementById(
+        "heroAnterior"
+    );
+
+const botaoProximo =
+    document.getElementById(
+        "heroProximo"
+    );
+
+const hero =
+    document.getElementById(
+        "hero"
+    );
+
+
+/*
+    Slide atualmente exibido.
+*/
+
+let slideAtual = 0;
+
+
+/*
+    Tempo entre cada troca automática.
+
+    5 segundos.
+*/
+
+const TEMPO_SLIDE = 5000;
+
+
+/*
+    Variável responsável pelo intervalo.
+*/
+
+let intervaloCarrossel;
+
+
+/* =====================================================
+   MOSTRAR SLIDE
+===================================================== */
+
+function mostrarSlide(numero){
+
+    /*
+        Se passar do último,
+        volta para o primeiro.
+    */
+
+    if(numero >= slides.length){
+
+        numero = 0;
+
+    }
+
+
+    /*
+        Se voltar antes do primeiro,
+        vai para o último.
+    */
+
+    if(numero < 0){
+
+        numero =
+            slides.length - 1;
+
+    }
+
+
+    slideAtual = numero;
+
+
+    /*
+        AQUI ESTÁ A PRINCIPAL MUDANÇA.
+
+        Em vez de trocar opacity,
+        movimentamos o conjunto de imagens
+        horizontalmente.
+
+        Exemplo:
+
+        Slide 1:
+        translateX(0%)
+
+        Slide 2:
+        translateX(-100%)
+
+        Slide 3:
+        translateX(-200%)
+
+        Slide 4:
+        translateX(-300%)
+    */
+
+    heroSlides.style.transform =
+        `translateX(-${slideAtual * 100}%)`;
+
+
+    /*
+        Atualiza os indicadores.
+    */
+
+    indicadores.forEach(
+        (indicador,index) => {
+
+            indicador.classList.toggle(
+                "ativo",
+                index === slideAtual
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   PRÓXIMO SLIDE
+===================================================== */
+
+function proximoSlide(){
+
+    mostrarSlide(
+        slideAtual + 1
+    );
+
+}
+
+
+/* =====================================================
+   SLIDE ANTERIOR
+===================================================== */
+
+function slideAnterior(){
+
+    mostrarSlide(
+        slideAtual - 1
+    );
+
+}
+
+
+/* =====================================================
+   INICIAR CARROSSEL AUTOMÁTICO
+===================================================== */
+
+function iniciarCarrossel(){
+
+    pararCarrossel();
+
+
+    intervaloCarrossel =
+        setInterval(
+            proximoSlide,
+            TEMPO_SLIDE
+        );
+
+}
+
+
+/* =====================================================
+   PARAR CARROSSEL
+===================================================== */
+
+function pararCarrossel(){
+
+    clearInterval(
+        intervaloCarrossel
+    );
+
+}
+
+
+/* =====================================================
+   BOTÃO PRÓXIMO
+===================================================== */
+
+botaoProximo.addEventListener(
+    "click",
+    function(){
+
+        proximoSlide();
+
+        iniciarCarrossel();
+
+    }
+);
+
+
+/* =====================================================
+   BOTÃO ANTERIOR
+===================================================== */
+
+botaoAnterior.addEventListener(
+    "click",
+    function(){
+
+        slideAnterior();
+
+        iniciarCarrossel();
+
+    }
+);
+
+
+/* =====================================================
+   INDICADORES
+===================================================== */
+
+indicadores.forEach(
+    indicador => {
+
+        indicador.addEventListener(
+            "click",
+            function(){
+
+                const numero =
+                    Number(
+                        this.dataset.slide
+                    );
+
+
+                mostrarSlide(
+                    numero
+                );
+
+
+                iniciarCarrossel();
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
+   PAUSAR AO PASSAR O MOUSE
+===================================================== */
+
+hero.addEventListener(
+    "mouseenter",
+    function(){
+
+        pararCarrossel();
+
+    }
+);
+
+
+hero.addEventListener(
+    "mouseleave",
+    function(){
+
+        iniciarCarrossel();
+
+    }
+);
+
+
+/* =====================================================
+   INICIAR
+===================================================== */
+
+mostrarSlide(0);
+
+iniciarCarrossel();
+
+
+/* =====================================================
+   PRODUTOS
+===================================================== */
+
+const produtos = [
+
+{
+    id:1,
+    nome:"Lâmpada LED 12W",
+    categoria:"lampadas",
+    categoriaNome:"Lâmpadas",
+    codigo:"LED-0012",
+    preco:12.90,
+    imagem:"https://via.placeholder.com/600x500?text=Lampada+LED",
+    descricao:"Lâmpada LED de alta eficiência, indicada para ambientes residenciais e comerciais."
+},
+
+{
+    id:2,
+    nome:"Lâmpada LED 9W",
+    categoria:"lampadas",
+    categoriaNome:"Lâmpadas",
+    codigo:"LED-0009",
+    preco:null,
+    imagem:"https://via.placeholder.com/600x500?text=Lampada+9W",
+    descricao:"Lâmpada LED econômica para iluminação residencial."
+},
+
+{
+    id:3,
+    nome:"Spot LED Direcionável",
+    categoria:"spots",
+    categoriaNome:"Spots",
+    codigo:"SPOT-001",
+    preco:null,
+    imagem:"https://via.placeholder.com/600x500?text=Spot+LED",
+    descricao:"Spot LED direcionável para iluminação de destaque e decoração."
+},
+
+{
+    id:4,
+    nome:"Plafon LED 24W",
+    categoria:"plafons",
+    categoriaNome:"Plafons",
+    codigo:"PLAFON-0024",
+    preco:null,
+    imagem:"https://via.placeholder.com/600x500?text=Plafon+LED",
+    descricao:"Plafon LED com iluminação uniforme para ambientes residenciais e comerciais."
+},
+
+{
+    id:5,
+    nome:"Fita LED 5 Metros",
+    categoria:"led",
+    categoriaNome:"Fitas e LED",
+    codigo:"FITA-LED-005",
+    preco:null,
+    imagem:"https://via.placeholder.com/600x500?text=Fita+LED",
+    descricao:"Fita LED para iluminação decorativa de ambientes."
+},
+
+{
+    id:6,
+    nome:"Interruptor Simples",
+    categoria:"eletrica",
+    categoriaNome:"Materiais elétricos",
+    codigo:"INT-001",
+    preco:null,
+    imagem:"https://via.placeholder.com/600x500?text=Interruptor",
+    descricao:"Interruptor simples para instalações elétricas residenciais."
+}
+
+];
+
+
+/* =====================================================
+   FORMATAR PREÇO
+===================================================== */
+
+function formatarPreco(preco){
+
+    if(
+        preco === null ||
+        preco === undefined
+    ){
+
+        return "Consulte";
+
+    }
+
+    return preco.toLocaleString(
+        "pt-BR",
+        {
+            style:"currency",
+            currency:"BRL"
+        }
+    );
+
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+function linkWhatsApp(produto=null){
+
+    let mensagem;
+
+
+    if(produto){
+
+        mensagem =
+            `Olá! Gostaria de saber o preço e ` +
+            `a disponibilidade do produto "${produto.nome}" ` +
+            `(código ${produto.codigo}).`;
+
+    }else{
+
+        mensagem =
+            "Olá! Gostaria de saber mais informações sobre os produtos da loja.";
+
+    }
+
+
+    return(
+        "https://wa.me/" +
+        CONFIG.whatsapp +
+        "?text=" +
+        encodeURIComponent(
+            mensagem
+        )
+    );
+
+}
+
+
+/* =====================================================
+   CARD DO PRODUTO
+===================================================== */
+
+function criarCard(produto){
+
+    return `
+
+    <article class="product-card">
+
+        <div class="product-image">
+
+            <img
+                src="${produto.imagem}"
+                alt="${produto.nome}"
+                loading="lazy"
+            >
+
+        </div>
+
+
+        <div class="product-info">
+
+            <span class="product-category">
+                ${produto.categoriaNome}
+            </span>
+
+
+            <h3>
+                ${produto.nome}
+            </h3>
+
+
+            <p>
+                ${produto.descricao}
+            </p>
+
+
+            <strong class="product-price">
+
+                ${
+                    produto.preco !== null
+                    ? formatarPreco(produto.preco)
+                    : "Consulte"
+                }
+
+            </strong>
+
+
+            <button
+                type="button"
+                class="btn btn-primary product-button add-cart-button"
+                data-add-cart="${produto.id}"
+            >
+                Adicionar ao carrinho
+            </button>
+
+        </div>
+
+    </article>
+
+    `;
+
+}
+
+
+/* =====================================================
+   MOSTRAR PRODUTOS
+===================================================== */
+
+function mostrarProdutos(lista){
+
+    const container =
+        document.getElementById(
+            "listaProdutos"
+        );
+
+    const nenhum =
+        document.getElementById(
+            "nenhumProduto"
+        );
+
+
+    if(!lista.length){
+
+        container.innerHTML = "";
+
+        nenhum.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    nenhum.style.display =
+        "none";
+
+
+    container.innerHTML =
+        lista
+        .map(criarCard)
+        .join("");
+
+}
+
+
+/* =====================================================
+   FILTRO DE PRODUTOS
+===================================================== */
+
+function filtrarProdutos(){
+
+    const busca =
+        document
+        .getElementById("busca")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    const categoria =
+        document
+        .getElementById(
+            "filtroCategoria"
+        )
+        .value;
+
+
+    const resultado =
+        produtos.filter(
+            produto => {
+
+                const correspondeBusca =
+
+                    !busca ||
+
+                    produto.nome
+                    .toLowerCase()
+                    .includes(busca) ||
+
+                    produto.descricao
+                    .toLowerCase()
+                    .includes(busca) ||
+
+                    produto.codigo
+                    .toLowerCase()
+                    .includes(busca);
+
+
+                const correspondeCategoria =
+
+                    !categoria ||
+
+                    produto.categoria ===
+                    categoria;
+
+
+                return(
+                    correspondeBusca &&
+                    correspondeCategoria
+                );
+
+            }
+        );
+
+
+    mostrarProdutos(
+        resultado
+    );
+
+}
+
+
+/* =====================================================
+   BUSCA
+===================================================== */
+
+document
+.getElementById("busca")
+.addEventListener(
+    "input",
+    filtrarProdutos
+);
+
+
+document
+.querySelectorAll(".catalog-category")
+.forEach(
+    categoria => {
+
+        categoria.addEventListener(
+            "click",
+            function(){
+
+                document
+                .querySelectorAll(".catalog-category")
+                .forEach(item => {
+                    item.classList.remove("ativo");
+                });
+
+                this.classList.add("ativo");
+
+                document
+                .getElementById("filtroCategoria")
+                .value =
+                    this.dataset.category;
+
+                filtrarProdutos();
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
+   CATEGORIAS
+===================================================== */
+
+document
+.querySelectorAll(".category-card")
+.forEach(
+    categoria => {
+
+        categoria.addEventListener(
+            "click",
+            function(){
+
+                const valor =
+                    this.dataset.category;
+
+
+                document
+                .getElementById(
+                    "filtroCategoria"
+                )
+                .value =
+                    valor;
+
+
+                filtrarProdutos();
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
+   MENU MOBILE
+===================================================== */
+
+const menuButton =
+    document.getElementById(
+        "menuMobile"
+    );
+
+const menu =
+    document.getElementById(
+        "menu"
+    );
+
+
+menuButton.addEventListener(
+    "click",
+    function(){
+
+        const aberto =
+            menu.classList.toggle(
+                "aberto"
+            );
+
+
+        this.setAttribute(
+            "aria-expanded",
+            aberto
+        );
+
+
+        this.innerHTML =
+            aberto
+            ? "✕"
+            : "☰";
+
+    }
+);
+
+
+document
+.querySelectorAll(".menu a")
+.forEach(
+    link => {
+
+        link.addEventListener(
+            "click",
+            function(){
+
+                menu.classList.remove(
+                    "aberto"
+                );
+
+
+                menuButton.innerHTML =
+                    "☰";
+
+
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
+   LINKS WHATSAPP
+===================================================== */
+
+document
+.querySelectorAll(".whatsapp-link")
+.forEach(
+    link => {
+
+        link.href =
+            linkWhatsApp();
+
+        link.target =
+            "_blank";
+
+        link.rel =
+            "noopener noreferrer";
+
+    }
+);
+
+
+/* =====================================================
+   FORMULÁRIO
+===================================================== */
+
+document
+.getElementById("formContato")
+.addEventListener(
+    "submit",
+    function(event){
+
+        event.preventDefault();
+
+
+        const nome =
+            document
+            .getElementById("nome")
+            .value
+            .trim();
+
+
+        const telefone =
+            document
+            .getElementById("telefone")
+            .value
+            .trim();
+
+
+        const mensagem =
+            document
+            .getElementById("mensagem")
+            .value
+            .trim();
+
+
+        const texto =
+
+            `Olá! Meu nome é ${nome}. ` +
+
+            (
+                telefone
+                ? `Meu telefone é ${telefone}. `
+                : ""
+            ) +
+
+            mensagem;
+
+
+        const url =
+
+            "https://wa.me/" +
+            CONFIG.whatsapp +
+            "?text=" +
+            encodeURIComponent(
+                texto
+            );
+
+
+        window.open(
+            url,
+            "_blank"
+        );
+
+    }
+);
+
+
+/* =====================================================
+   CARREGAR PRODUTOS
+===================================================== */
+
+mostrarProdutos(
+    produtos
+);
+
+
+
+/* =====================================================
+   CARRINHO DE COMPRAS
+===================================================== */
+
+let carrinho = [];
+
+const cartOverlay = document.getElementById("cartOverlay");
+const abrirCarrinho = document.getElementById("abrirCarrinho");
+const fecharCarrinho = document.getElementById("fecharCarrinho");
+const itensCarrinho = document.getElementById("itensCarrinho");
+const contadorCarrinho = document.getElementById("contadorCarrinho");
+const abrirCarrinhoFlutuante = document.getElementById("abrirCarrinhoFlutuante");
+const contadorCarrinhoFlutuante = document.getElementById("contadorCarrinhoFlutuante");
+const totalCarrinho = document.getElementById("totalCarrinho");
+const solicitarOrcamento = document.getElementById("solicitarOrcamento");
+
+
+function formatarTotalCarrinho(valor){
+
+    if(valor <= 0){
+        return "R$ 0,00";
+    }
+
+    return valor.toLocaleString(
+        "pt-BR",
+        {
+            style:"currency",
+            currency:"BRL"
+        }
+    );
+
+}
+
+
+function quantidadeTotalCarrinho(){
+
+    return carrinho.reduce(
+        (total,item) => total + item.quantidade,
+        0
+    );
+
+}
+
+
+function atualizarCarrinho(){
+
+    const quantidade = quantidadeTotalCarrinho();
+
+    contadorCarrinho.textContent = quantidade;
+    contadorCarrinhoFlutuante.textContent = quantidade;
+
+    if(!carrinho.length){
+
+        itensCarrinho.innerHTML = `
+            <div class="cart-empty">
+                <strong>Seu carrinho está vazio.</strong>
+                <p>Adicione os produtos que deseja incluir no orçamento.</p>
+            </div>
+        `;
+
+        totalCarrinho.textContent = "R$ 0,00";
+        return;
+
+    }
+
+
+    itensCarrinho.innerHTML =
+        carrinho.map(item => `
+
+            <div class="cart-item">
+
+                <div class="cart-item-image">
+                    <img
+                        src="${item.imagem}"
+                        alt="${item.nome}"
+                    >
+                </div>
+
+                <div class="cart-item-info">
+
+                    <h4>${item.nome}</h4>
+
+                    <small>Código: ${item.codigo}</small>
+
+                    <div class="cart-item-price">
+                        ${
+                            item.preco !== null
+                            ? formatarPreco(item.preco)
+                            : "Preço sob consulta"
+                        }
+                    </div>
+
+                    <div class="cart-quantity">
+
+                        <button
+                            type="button"
+                            data-cart-action="menos"
+                            data-cart-id="${item.id}"
+                            aria-label="Diminuir quantidade"
+                        >
+                            −
+                        </button>
+
+                        <span>${item.quantidade}</span>
+
+                        <button
+                            type="button"
+                            data-cart-action="mais"
+                            data-cart-id="${item.id}"
+                            aria-label="Aumentar quantidade"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="cart-remove"
+                    data-cart-action="remover"
+                    data-cart-id="${item.id}"
+                >
+                    Remover
+                </button>
+
+            </div>
+
+        `).join("");
+
+
+    const total =
+        carrinho.reduce(
+            (soma,item) => {
+
+                if(item.preco === null){
+                    return soma;
+                }
+
+                return soma + (item.preco * item.quantidade);
+
+            },
+            0
+        );
+
+
+    totalCarrinho.textContent =
+        formatarTotalCarrinho(total);
+
+}
+
+
+function adicionarAoCarrinho(id){
+
+    const produto =
+        produtos.find(
+            item => item.id === id
+        );
+
+    if(!produto){
+        return;
+    }
+
+
+    const existente =
+        carrinho.find(
+            item => item.id === id
+        );
+
+
+    if(existente){
+
+        existente.quantidade += 1;
+
+    }else{
+
+        carrinho.push({
+            ...produto,
+            quantidade:1
+        });
+
+    }
+
+
+    atualizarCarrinho();
+    abrirPainelCarrinho();
+
+}
+
+
+function alterarQuantidade(id, delta){
+
+    const item =
+        carrinho.find(
+            produto => produto.id === id
+        );
+
+    if(!item){
+        return;
+    }
+
+
+    item.quantidade += delta;
+
+
+    if(item.quantidade <= 0){
+
+        carrinho =
+            carrinho.filter(
+                produto => produto.id !== id
+            );
+
+    }
+
+
+    atualizarCarrinho();
+
+}
+
+
+function removerDoCarrinho(id){
+
+    carrinho =
+        carrinho.filter(
+            produto => produto.id !== id
+        );
+
+    atualizarCarrinho();
+
+}
+
+
+function abrirPainelCarrinho(){
+
+    cartOverlay.classList.add("aberto");
+    cartOverlay.setAttribute("aria-hidden","false");
+
+}
+
+
+function fecharPainelCarrinho(){
+
+    cartOverlay.classList.remove("aberto");
+    cartOverlay.setAttribute("aria-hidden","true");
+
+}
+
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        const botaoAdicionar =
+            event.target.closest(
+                "[data-add-cart]"
+            );
+
+
+        if(botaoAdicionar){
+
+            adicionarAoCarrinho(
+                Number(
+                    botaoAdicionar.dataset.addCart
+                )
+            );
+
+            return;
+
+        }
+
+
+        const acaoCarrinho =
+            event.target.closest(
+                "[data-cart-action]"
+            );
+
+
+        if(acaoCarrinho){
+
+            const id =
+                Number(
+                    acaoCarrinho.dataset.cartId
+                );
+
+            const acao =
+                acaoCarrinho.dataset.cartAction;
+
+
+            if(acao === "mais"){
+                alterarQuantidade(id,1);
+            }
+
+            if(acao === "menos"){
+                alterarQuantidade(id,-1);
+            }
+
+            if(acao === "remover"){
+                removerDoCarrinho(id);
+            }
+
+        }
+
+    }
+);
+
+
+abrirCarrinho.addEventListener(
+    "click",
+    abrirPainelCarrinho
+);
+
+abrirCarrinhoFlutuante.addEventListener(
+    "click",
+    abrirPainelCarrinho
+);
+
+
+fecharCarrinho.addEventListener(
+    "click",
+    fecharPainelCarrinho
+);
+
+
+cartOverlay.addEventListener(
+    "click",
+    function(event){
+
+        if(event.target === cartOverlay){
+            fecharPainelCarrinho();
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Escape" &&
+            cartOverlay.classList.contains("aberto")
+        ){
+            fecharPainelCarrinho();
+        }
+
+    }
+);
+
+
+solicitarOrcamento.addEventListener(
+    "click",
+    function(){
+
+        if(!carrinho.length){
+
+            alert(
+                "Adicione pelo menos um produto ao carrinho antes de solicitar o orçamento."
+            );
+
+            return;
+
+        }
+
+
+        const linhas =
+            carrinho.map(
+                item => {
+
+                    const preco =
+                        item.preco !== null
+                        ? formatarPreco(item.preco)
+                        : "Preço sob consulta";
+
+
+                    return(
+                        `• ${item.nome} | ` +
+                        `Código: ${item.codigo} | ` +
+                        `Qtd.: ${item.quantidade} | ` +
+                        `Preço: ${preco}`
+                    );
+
+                }
+            );
+
+
+        const total =
+            carrinho.reduce(
+                (soma,item) => {
+
+                    if(item.preco === null){
+                        return soma;
+                    }
+
+                    return soma +
+                        (item.preco * item.quantidade);
+
+                },
+                0
+            );
+
+
+        const mensagem =
+            "Olá! Gostaria de solicitar um orçamento para os seguintes produtos:\n\n" +
+            linhas.join("\n") +
+            "\n\n" +
+            `Total estimado: ${formatarTotalCarrinho(total)}` +
+            "\n\n" +
+            "Aguardo informações sobre disponibilidade e condições de pagamento.";
+
+
+        const url =
+            "https://wa.me/" +
+            CONFIG.whatsapp +
+            "?text=" +
+            encodeURIComponent(
+                mensagem
+            );
+
+
+        window.open(
+            url,
+            "_blank"
+        );
+
+    }
+);
+
+
+atualizarCarrinho();
+
+</script>
+
+
+
+</body>
+
+</html>
