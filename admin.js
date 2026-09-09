@@ -1,1 +1,0 @@
-// FASE 2: estrutura inicial do painel administrativo.\nconsole.info("Painel administrativo — estrutura da Fase 2 carregada.");\n
